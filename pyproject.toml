@@ -1,0 +1,64 @@
+[tool.poetry]
+description = "Classify crimes into types."
+name = "chicago-taxi-service"
+version = "0.0.2"
+
+readme = 'README.md' # Markdown files are supported
+repository = "https://github.com/TierMobility/chicago-taxi-service" 
+
+authors = [
+  "Anastasia Makhonina <nastja.makhonina.dev@gmail.com>",
+]
+
+[tool.poetry.scripts]
+cli = "src.entrypoint:start_cli"
+
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[tool.poetry.dependencies]
+python = ">=3.11.4,<3.12" # Compatible python versions must be declared here
+
+# data science stack
+lightgbm = "^3.3.5"
+numpy = "^1.24.3"
+pandas = "^2.0.1"
+
+# webserver
+fastapi = "^0.95.1"
+uvicorn = "^0.22.0"
+
+scikit-learn = "^1.2.2"
+coloredlogs = "^15.0.1"
+types-requests = "^2.31.0.2"
+click = "^8.1.7"
+fire = "^0.5.0"
+python-dotenv = "^1.0.0"
+pyyaml = "^6.0.1"
+types-pyyaml = "^6.0.12.11"
+
+[tool.poetry.dev-dependencies]
+# code syntax
+black = "^23.3.0"
+flake8 = "^6.0.0"
+mypy = "^1.2.0"
+ipython = "^8.13.0"
+jupyter = "^1.0.0"
+matplotlib = "^3.7.1"
+
+# testing
+pytest = "^7.3.1"
+pytest-cov = "^4.0.0"
+
+# misc.
+python-dotenv = "^1.0.0"
+
+[tool.black]
+line-length = 90
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
